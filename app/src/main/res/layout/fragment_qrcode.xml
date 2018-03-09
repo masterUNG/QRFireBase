@@ -5,6 +5,7 @@
 
     <!--Show Result-->
     <TextView
+        android:id="@+id/txtShowResult"
         android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginTop="100dp"
@@ -16,6 +17,7 @@
 
     <!--QR Scan-->
     <Button
+        android:id="@+id/btnQRscan"
         android:textStyle="bold"
         android:textSize="@dimen/h1"
         android:text="QR Scan"
