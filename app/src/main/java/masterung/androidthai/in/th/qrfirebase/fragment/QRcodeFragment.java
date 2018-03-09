@@ -15,6 +15,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.zxing.Result;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -69,6 +73,13 @@ public class QRcodeFragment extends Fragment{
                             Map<String, Object> stringObjectMap = new HashMap<>();
                             stringObjectMap.put("NewsFeed", resultString);
                             databaseReference.updateChildren(stringObjectMap);
+
+//                            Update DateTime and Result to Firebase
+                            Calendar calendar = Calendar.getInstance();
+                            DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+                            String dateTimeSting = dateFormat.format(calendar.getTime());
+
+                            Log.d("9MarchV1", "DateTime ==> " + dateTimeSting);
 
                             zXingScannerView.removeAllViews();
                             zXingScannerView.stopCameraPreview();
