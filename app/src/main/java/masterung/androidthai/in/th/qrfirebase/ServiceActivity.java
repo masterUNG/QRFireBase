@@ -52,8 +52,23 @@ public class ServiceActivity extends AppCompatActivity {
 
         getMultiDataController();
 
+//        QR Code Service
+        QRCodeService();
+
 
     }   // Main Method
+
+    private void QRCodeService() {
+        TextView textView = findViewById(R.id.txtQRcode);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+
+            }
+        });
+    }
 
     private void getMultiDataController() {
         TextView textView = findViewById(R.id.txtGetMultiData);
