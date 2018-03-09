@@ -24,6 +24,7 @@ import java.util.Map;
 
 import masterung.androidthai.in.th.qrfirebase.R;
 import masterung.androidthai.in.th.qrfirebase.ServiceActivity;
+import masterung.androidthai.in.th.qrfirebase.utility.ProductModel;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 /**
@@ -80,6 +81,16 @@ public class QRcodeFragment extends Fragment{
                             String dateTimeSting = dateFormat.format(calendar.getTime());
 
                             Log.d("9MarchV1", "DateTime ==> " + dateTimeSting);
+
+
+
+//                            Setter Model
+                            ProductModel productModel = new ProductModel(dateTimeSting, resultString);
+
+//                            Getter Model and upDate to Firebase
+                            databaseReference.child("Product").child(dateTimeSting).setValue(productModel);
+
+
 
                             zXingScannerView.removeAllViews();
                             zXingScannerView.stopCameraPreview();
