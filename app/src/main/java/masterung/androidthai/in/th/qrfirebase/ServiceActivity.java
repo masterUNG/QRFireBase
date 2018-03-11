@@ -17,6 +17,7 @@ import com.google.firebase.auth.FirebaseUser;
 import masterung.androidthai.in.th.qrfirebase.fragment.GetMultiDataFragment;
 import masterung.androidthai.in.th.qrfirebase.fragment.PostMultiDataFragment;
 import masterung.androidthai.in.th.qrfirebase.fragment.QRcodeFragment;
+import masterung.androidthai.in.th.qrfirebase.fragment.ReadAllCodeFragment;
 import masterung.androidthai.in.th.qrfirebase.fragment.ReadRealTimeFragment;
 import masterung.androidthai.in.th.qrfirebase.fragment.WriteRealTimeFragment;
 
@@ -56,8 +57,23 @@ public class ServiceActivity extends AppCompatActivity {
 //        QR Code Service
         QRCodeService();
 
+//        Read All Code
+        readAllCode();
 
     }   // Main Method
+
+    private void readAllCode() {
+        TextView textView = findViewById(R.id.txtReadAllcode);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.contentServiceFragment, new ReadAllCodeFragment()).commit();
+                drawerLayout.closeDrawers();
+            }
+        });
+    }
 
     private void QRCodeService() {
         TextView textView = findViewById(R.id.txtQRcode);
